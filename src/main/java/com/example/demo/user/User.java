@@ -17,6 +17,6 @@ public class User {
     private int age;
 
     @JoinColumn(name = "city_id", nullable = false)
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private City city;
 }
