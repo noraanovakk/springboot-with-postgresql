@@ -1,11 +1,13 @@
 package com.example.demo.user;
 
 import com.example.demo.city.City;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@Data
 public class User {
 
     @Id

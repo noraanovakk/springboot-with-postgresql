@@ -9,16 +9,16 @@ import java.util.stream.Collectors;
 @RestController
 public class CityController implements CityAPI{
 
-    private final CityService cityService;
+    private final ICityService iCityService;
 
     @Autowired
-    public CityController(CityService cityService) {
-        this.cityService = cityService;
+    public CityController(ICityService iCityService) {
+        this.iCityService = iCityService;
     }
 
     @Override
     public List<CityDTO> getAllCities() {
-        return cityService.findAll()
+        return iCityService.findAll()
                 .stream()
                 .map(CityFactory::createCityDTO)
                 .collect(Collectors.toList());

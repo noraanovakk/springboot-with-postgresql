@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@RequestMapping("/api")
+@RequestMapping("/api/city")
 public interface CityAPI {
 
     @GetMapping("/getAll")
