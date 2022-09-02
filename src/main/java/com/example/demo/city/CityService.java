@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CityService implements ICityService {
@@ -18,5 +19,10 @@ public class CityService implements ICityService {
     @Override
     public List<City> findAll() {
         return (List<City>)cityRepository.findAll();
+    }
+
+    @Override
+    public Optional<City> findByName(String name) {
+        return cityRepository.findByName(name);
     }
 }

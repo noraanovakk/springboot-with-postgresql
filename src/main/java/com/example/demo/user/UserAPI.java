@@ -1,8 +1,8 @@
 package com.example.demo.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.example.demo.city.CityDTO;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -10,8 +10,11 @@ import java.util.List;
 public interface UserAPI {
 
     @GetMapping("/getAll")
-    public List<UserDTO> getAll();
+    ResponseEntity<List<UserDTO>> getAll();
 
     @GetMapping("/getAll/city/{cityId}")
-    public List<UserDTO> getAllByCityId(@PathVariable long cityId);
+    ResponseEntity<List<UserDTO>> getAllByCityId(@PathVariable long cityId);
+
+    @PostMapping("/getAll/city")
+    ResponseEntity<List<UserDTO>> getAllByCity(@RequestBody CityDTO city);
 }

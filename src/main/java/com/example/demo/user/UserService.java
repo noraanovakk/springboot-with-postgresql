@@ -1,5 +1,6 @@
 package com.example.demo.user;
 
+import com.example.demo.city.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +24,10 @@ public class UserService implements IUserService {
     @Override
     public List<User> findByCityId(long cityId) {
         return userRepository.findByCityId(cityId);
+    }
+
+    @Override
+    public List<User> findByCity(City city) {
+        return userRepository.findByCity(city);
     }
 }

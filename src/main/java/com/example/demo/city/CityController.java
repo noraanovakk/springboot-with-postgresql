@@ -1,6 +1,7 @@
 package com.example.demo.city;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,10 +18,11 @@ public class CityController implements CityAPI{
     }
 
     @Override
-    public List<CityDTO> getAllCities() {
-        return iCityService.findAll()
+    public ResponseEntity<List<CityDTO>> getAllCities() {
+        List<CityDTO> dtos = iCityService.findAll()
                 .stream()
                 .map(CityFactory::createCityDTO)
                 .collect(Collectors.toList());
+        return ResponseEntity.ok(dtos);
     }
 }
